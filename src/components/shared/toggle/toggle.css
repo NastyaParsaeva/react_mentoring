@@ -1,0 +1,21 @@
+.toggle {
+  display: flex;
+}
+
+.toggle__name {
+  padding: 10px 15px 10px 0;
+  display: inline-block;
+}
+
+.toggle__item {
+  padding: 10px;
+}
+
+.toggle__item-list {
+  display: flex;
+}
+
+.toggle__item-list:first-child {
+  background-color: #F65261;
+  border-radius: 10px 0 0 10px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FilmListItem from '../film-list-item/film-list-item';
 import './film-list.css';
 import logo from '../../../../assets/kill-bill.jpg';
+import SearchResults from '../search-results/search-results';
 
 class FilmList extends Component {
 
@@ -58,11 +59,14 @@ class FilmList extends Component {
   }
   render() {
       return (
-        <div className="film-list">
-          {this.state.films.map((film) => 
-          <FilmListItem key={film.id} film={film}></FilmListItem>
-          )}
-        </div>
+        <React.Fragment>
+          <SearchResults resultsAmount={this.state.films.length}></SearchResults>
+          <div className="film-list">
+            {this.state.films.map((film) => 
+            <FilmListItem key={film.id} film={film}></FilmListItem>
+            )}
+          </div>
+        </React.Fragment>
       )
   }
 }

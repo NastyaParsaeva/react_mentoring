@@ -1,0 +1,9 @@
+.footer {
+  background-color: #424242;
+}
+.footer__logo {
+  max-height: 40px;
+  padding: 15px 0;
+  margin: 0 auto;
+  display: block;
+}

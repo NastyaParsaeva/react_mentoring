@@ -1,0 +1,12 @@
+.search-results {
+  background-color: #424242;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.search-results__amount {
+  padding: 5px 0;
+  margin: 16px 0;
+  font-weight: 700;
+}
