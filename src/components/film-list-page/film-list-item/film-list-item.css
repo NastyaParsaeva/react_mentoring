@@ -1,0 +1,29 @@
+.film-item {
+  width: 30%;
+  padding-bottom: 25px;
+}
+
+.film-item__title-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.film-item__title {
+  margin: 0px;
+}
+.film-item__image {
+  width:100%;
+}
+
+.film-item__date {
+  font-size: 14px;
+  margin: 0;
+  padding: 5px;
+  border: 0.5px solid #fff;
+  border-radius: 6px;
+}
+
+.film-item__genre {
+  font-size: 14px;
+  margin: 0;
+}

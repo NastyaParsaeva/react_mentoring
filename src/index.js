@@ -4,8 +4,7 @@ import App from './components/app';
 
 const rootEl = document.getElementById('app');
 
-
-render(<App />, rootEl);
+render(<App style="width:90%;max-width:1250px"/>, rootEl);
 
 if (module.hot) {
     module.hot.accept();

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import FilmList from '../components/film-list-page/film-list'
+import FilmList from './film-list-page/film-list/film-list'
+import './app.css';
+
 class App extends Component {
     render() {
         return (
