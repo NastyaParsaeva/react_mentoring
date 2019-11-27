@@ -15,7 +15,6 @@
   display: flex;
 }
 
-.toggle__item-list:first-child {
+.toggle__item.selected {
   background-color: #F65261;
-  border-radius: 10px 0 0 10px;
 }
