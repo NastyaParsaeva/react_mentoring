@@ -6,10 +6,23 @@ class SearchComponent extends Component {
 
   constructor() {
     super();
-    this.toggleOptions = {
+    this.state = {toggleOptions: {
+      toggleName: '',
+      toggleItems: [],
+    }};
+  }
+
+  componentDidMount() {
+    this.setState({toggleOptions: {
       toggleName: 'SEARCH BY',
-      toggleItems: ['TITLE', 'GENRE'],
-    }
+      toggleItems: [{
+        name: 'TITLE',
+        selected: true
+      },{
+        name: 'GENRE',
+        selected: false,
+      }],
+    }})
   }
 
   render() {
@@ -23,7 +36,7 @@ class SearchComponent extends Component {
           ></input>
           <button className="search__button">SEARCH</button>
         </div>
-        <Toggle options={this.toggleOptions}></Toggle>
+        <Toggle options={this.state.toggleOptions}></Toggle>
       </section>
     )
   }

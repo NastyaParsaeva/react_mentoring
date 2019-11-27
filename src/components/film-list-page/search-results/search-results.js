@@ -6,10 +6,27 @@ class SearchResults extends Component {
 
   constructor() {
     super();
-    this.toggleOptions = {
+    this.state = {toggleOptions: {
+      toggleName: '',
+      toggleItems: [],
+    }};
+    // this.toggleOptions = {
+    //   toggleName: 'SORT BY',
+    //   toggleItems: ['RELEASE DATE', 'RATING'],
+    // }
+  }
+
+  componentDidMount() {
+    this.setState({toggleOptions: {
       toggleName: 'SORT BY',
-      toggleItems: ['RELEASE DATE', 'RATING'],
-    }
+      toggleItems: [{
+        name: 'RELEASE DATE',
+        selected: false,
+      }, {
+        name: 'RAITING',
+        selected: true,
+      }]
+    }})
   }
 
   render() {
@@ -18,7 +35,7 @@ class SearchResults extends Component {
         <p className="search-results__amount">
           {this.props.resultsAmount} movie found
         </p>
-        <Toggle options={this.toggleOptions}></Toggle>
+        <Toggle options={this.state.toggleOptions}></Toggle>
       </section>
     )
   }
