@@ -4,16 +4,19 @@ import './app.css';
 import Header from './core/header/header';
 import Footer from './core/footer/footer';
 import SearchComponent from './search/search-component/search-component';
+import ErrorBoundary from '../components/core/error-boundary/error-boundary';
 
 class App extends Component {
 	render() {
 		return (
-			<main>
-				<Header></Header>
-				<SearchComponent></SearchComponent>
-				<FilmList></FilmList>
-				<Footer></Footer>
-			</main>
+			<ErrorBoundary>
+				<main>
+					<Header></Header>
+					<SearchComponent></SearchComponent>
+					<FilmList></FilmList>
+					<Footer></Footer>
+				</main>
+			</ErrorBoundary>
 		)
 	}
 }
