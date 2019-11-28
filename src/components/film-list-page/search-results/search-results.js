@@ -6,18 +6,15 @@ class SearchResults extends Component {
 
   constructor() {
     super();
-    this.state = {toggleOptions: {
+    this.handleToggleItemClick = this.handleToggleItemClick.bind(this);
+    this.state = {
       toggleName: '',
       toggleItems: [],
-    }};
-    // this.toggleOptions = {
-    //   toggleName: 'SORT BY',
-    //   toggleItems: ['RELEASE DATE', 'RATING'],
-    // }
+    };
   }
 
   componentDidMount() {
-    this.setState({toggleOptions: {
+    this.setState({
       toggleName: 'SORT BY',
       toggleItems: [{
         name: 'RELEASE DATE',
@@ -26,7 +23,20 @@ class SearchResults extends Component {
         name: 'RAITING',
         selected: true,
       }]
-    }})
+    });
+  }
+
+  handleToggleItemClick(item) {
+    this.setState({
+      toggleName: this.state.toggleName,
+      toggleItems: this.state.toggleItems.map((stateItem) => {
+        if (stateItem.name === item.name) {
+          return {...stateItem, selected: true}
+        } else {
+          return {...stateItem, selected: false}
+        }
+      })
+    })
   }
 
   render() {
@@ -35,7 +45,10 @@ class SearchResults extends Component {
         <p className="search-results__amount">
           {this.props.resultsAmount} movie found
         </p>
-        <Toggle options={this.state.toggleOptions}></Toggle>
+        <Toggle
+          options={this.state}
+          onToggleItemClick={this.handleToggleItemClick}
+        ></Toggle>
       </section>
     )
   }

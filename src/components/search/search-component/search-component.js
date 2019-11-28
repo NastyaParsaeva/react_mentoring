@@ -6,14 +6,15 @@ class SearchComponent extends Component {
 
   constructor() {
     super();
-    this.state = {toggleOptions: {
+    this.handleToggleItemClick = this.handleToggleItemClick.bind(this);
+    this.state = {
       toggleName: '',
       toggleItems: [],
-    }};
+    };
   }
 
   componentDidMount() {
-    this.setState({toggleOptions: {
+    this.setState({
       toggleName: 'SEARCH BY',
       toggleItems: [{
         name: 'TITLE',
@@ -22,7 +23,20 @@ class SearchComponent extends Component {
         name: 'GENRE',
         selected: false,
       }],
-    }})
+    })
+  }
+
+  handleToggleItemClick(item) {
+    this.setState({
+      toggleName: this.state.toggleName,
+      toggleItems: this.state.toggleItems.map((stateItem) => {
+        if (stateItem.name === item.name) {
+          return {...stateItem, selected: true}
+        } else {
+          return {...stateItem, selected: false}
+        }
+      })
+    })
   }
 
   render() {
@@ -36,7 +50,10 @@ class SearchComponent extends Component {
           ></input>
           <button className="search__button">SEARCH</button>
         </div>
-        <Toggle options={this.state.toggleOptions}></Toggle>
+        <Toggle 
+          options={this.state}
+          onToggleItemClick={this.handleToggleItemClick}
+        ></Toggle>
       </section>
     )
   }

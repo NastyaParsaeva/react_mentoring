@@ -10,6 +10,7 @@ const Toggle = (options) => {
           <p
             className={"toggle__item" + (item.selected ? ' selected' : '')}
             key={item.name}
+            onClick={()=>options.onToggleItemClick(item)}
           >{item.name}</p>
         )
         )}
