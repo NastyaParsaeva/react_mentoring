@@ -4,8 +4,13 @@ import App from './components/app';
 
 const rootEl = document.getElementById('app');
 
-render(<App style="width:90%;max-width:1250px"/>, rootEl);
+render(
+	<Provider store={store}>
+		<App style="width:90%;max-width:1250px"/>
+	</Provider>,
+	rootEl);
 
 if (module.hot) {
-    module.hot.accept();
+	module.hot.accept();
 }
+
