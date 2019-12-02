@@ -7,6 +7,17 @@ import SearchComponent from './search/search-component/search-component';
 import ErrorBoundary from '../components/core/error-boundary/error-boundary';
 
 class App extends Component {
+
+	constructor(props) {
+		super(props)
+	}
+
+	componentDidMount() {
+    const { dispatch, selectedSubreddit } = this.props
+		
+		console.log(dispatch);
+	}
+	
 	render() {
 		return (
 			<ErrorBoundary>
