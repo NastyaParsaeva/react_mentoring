@@ -19,10 +19,11 @@ const store = createStore(
 
 render(
 	<Provider store={store}>
-		<App style="width:90%;max-width:1250px" />
-	</Provider>, rootEl
-);
+		<App style="width:90%;max-width:1250px"/>
+	</Provider>,
+	rootEl);
 
 if (module.hot) {
-    module.hot.accept();
+	module.hot.accept();
 }
+
