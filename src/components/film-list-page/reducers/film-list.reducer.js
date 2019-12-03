@@ -20,7 +20,7 @@ function filmListReducer(state = initialState, action) {
     case FilmListActionTypes.GET_FILM_LIST_SUCCESS:
       return {
         ...state,
-        filmList: action.payload.films,
+        filmList: action.payload,
         filmListFetching: false,
         filmListError: false,
       };

@@ -11,12 +11,6 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 	}
-
-	componentDidMount() {
-    const { dispatch, selectedSubreddit } = this.props
-		
-		console.log(dispatch);
-	}
 	
 	render() {
 		return (

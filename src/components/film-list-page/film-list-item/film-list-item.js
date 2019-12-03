@@ -6,15 +6,19 @@ const FilmListItem = ({ film }) => {
     <div className="film-item">
       <img 
         className="film-item__image"
-        src={film.imageUrl} 
+        src={film.poster_path} 
         alt={film.title} />
       <div className="film-item__title-row">
         <p className="film-item__title">{film.title}</p>
-        <p className="film-item__date">{film.releaseDate}</p>
+        <p className="film-item__date">{film.release_date}</p>
       </div>
-      <p className="film-item__genre">{film.genre}</p>
+      <p className="film-item__genre">{mapGenresToString(film.genres)}</p>
     </div>
   );
 };
+
+const mapGenresToString = (genres) => {
+  return genres.join(', ');
+}
 
 export default FilmListItem;

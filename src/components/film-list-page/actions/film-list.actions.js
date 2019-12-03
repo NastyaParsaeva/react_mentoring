@@ -12,10 +12,10 @@ export function getFilmList(text) {
   };
 };
 
-export function getFilmListSuccess(filmList) {
+export function getFilmListSuccess(payload) {
   return {
     type: FilmListActionTypes.GET_FILM_LIST_SUCCESS,
-    filmList,
+    payload,
   };
 };
 
@@ -28,10 +28,14 @@ export function getFilmListReject() {
 function fetchFilms() {
   return dispatch => {
     dispatch(getFilmList())
-    return fetch(`https://www.reddit.com/r/${subreddit}.json`)
-      .then(response => response.json())
-      .then(json => dispatch(getFilmListSuccess(json)))
+    return fetch('https://reactjs-cdp.herokuapp.com/movies')
+			.then(filmListJson => filmListJson.json())
+			.then(filmList => {
+				dispatch(getFilmListSuccess(filmList.data));
+			})
+			.catch(error => dispatch(getFilmListReject(error)));
   }
 }
 
 export default fetchFilms;
+
